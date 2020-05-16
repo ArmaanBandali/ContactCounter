@@ -26,13 +26,13 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               flex: 2,
               child: Padding(
-                padding: const EdgeInsets.only(top: 20.0),
+                padding: const EdgeInsets.symmetric(vertical: 15.0),
                 child: Image.asset('images/radar.png'),
               ),
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(10.0),
                 child: FlatButton(
                   color: Colors.red,
                   onPressed: () {
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(10.0),
                 child: FlatButton(
                   color: Colors.blue.shade700,
                   onPressed: () {
