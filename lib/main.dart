@@ -6,6 +6,28 @@ void main() => runApp(
       ),
     );
 
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Center(
+          child: FlatButton(
+            color: Colors.red,
+            onPressed: () {},
+            child: Text('Encounters'),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 class ContactCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,8 +35,10 @@ class ContactCounter extends StatelessWidget {
       backgroundColor: Colors.green.shade200,
       appBar: AppBar(
         backgroundColor: Colors.green.shade700,
+        title: Text('Contact Counter'),
+        centerTitle: true,
       ),
+      body: HomePage(),
     );
   }
 }
-
