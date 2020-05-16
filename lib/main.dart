@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 part 'encounters.dart';
+part 'results.dart';
 
 void main() => runApp(
       MaterialApp(
@@ -15,23 +18,65 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Center(
-          child: FlatButton(
-            color: Colors.red,
-<<<<<<< HEAD
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Encounters()),);
-            },
-            child: Text('Encounters'),
-=======
-            onPressed: () {},
-            child: Text('Encounters2'),
->>>>>>> df537ca27dc72430c6ce3916a0f6867136e901be
-          ),
+    return SafeArea(
+      child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Expanded(
+              flex: 2,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Image.asset('images/radar.png'),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(20.0),
+                child: FlatButton(
+                  color: Colors.red,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Encounters()),
+                    );
+                  },
+                  child: Text(
+                    'ENCOUNTERS',
+                    style: TextStyle(
+                      fontSize: 50.0,
+                      fontFamily: 'SourceCodePro',
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(20.0),
+                child: FlatButton(
+                  color: Colors.blue.shade700,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Results()),
+                    );
+                  },
+                  child: Text(
+                    'RESULTS',
+                    style: TextStyle(
+                      fontSize: 50.0,
+                      fontFamily: 'SourceCodePro',
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
