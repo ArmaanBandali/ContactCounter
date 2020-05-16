@@ -3,11 +3,11 @@ import 'login_page.dart';
 
 void main() => runApp(
       MaterialApp(
-        home: ContactCounter(),
+        home: Login(),
       ),
     );
 
-class ContactCounter extends StatelessWidget {
+class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
