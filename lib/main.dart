@@ -1,12 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:flutter/widgets.dart';
 part 'encounters.dart';
 part 'results.dart';
-=======
-import 'login_page.dart';
->>>>>>> LogingPage
 
 void main() => runApp(
       MaterialApp(
@@ -88,7 +84,6 @@ class _HomePageState extends State<HomePage> {
 class ContactCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return Scaffold(
       backgroundColor: Colors.green.shade200,
       appBar: AppBar(
@@ -97,14 +92,6 @@ class ContactCounter extends StatelessWidget {
         centerTitle: true,
       ),
       body: HomePage(),
-=======
-    return MaterialApp(
-      title: 'Flutter Login',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: LoginPage(),
->>>>>>> LogingPage
     );
   }
 }
