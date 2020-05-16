@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 part 'encounters.dart';
 part 'results.dart';
+part 'login_page.dart';
+part 'sign_in.dart';
 
 void main() => runApp(
       MaterialApp(
-        home: ContactCounter(),
+        home: Login(),
       ),
     );
 
@@ -92,6 +96,19 @@ class ContactCounter extends StatelessWidget {
         centerTitle: true,
       ),
       body: HomePage(),
+    );
+  }
+}
+
+class Login extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Login',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: LoginPage(),
     );
   }
 }
