@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login_page.dart';
 
 void main() => runApp(
       MaterialApp(
@@ -9,11 +10,12 @@ void main() => runApp(
 class ContactCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.green.shade200,
-      appBar: AppBar(
-        backgroundColor: Colors.green.shade700,
+    return MaterialApp(
+      title: 'Flutter Login',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: LoginPage(),
     );
   }
 }
