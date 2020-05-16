@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               flex: 2,
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 10.0),
                 child: Image.asset('images/radar.png'),
               ),
             ),

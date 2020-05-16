@@ -19,8 +19,12 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlutterLogo(size: 150),
-              SizedBox(height: 50),
+              CircleAvatar(
+                radius: 75.0,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage('images/person.png'),
+              ),
+              SizedBox(height: 25),
               _signInButton(),
             ],
           ),
@@ -45,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       highlightElevation: 0,
-      borderSide: BorderSide(color: Colors.grey),
+      borderSide: BorderSide(color: Colors.grey, width: 2.5),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
         child: Row(
