@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
           child: FlatButton(
             color: Colors.red,
             onPressed: () {},
-            child: Text('Encounters'),
+            child: Text('Encounters2'),
           ),
         ),
       ],
