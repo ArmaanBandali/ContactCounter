@@ -7,7 +7,7 @@ class Encounters extends StatelessWidget {
       backgroundColor: Colors.green.shade200,
       appBar: AppBar(
         backgroundColor: Colors.green.shade700,
-        title: Text('Contact Counter -- Encounter'),
+        title: Text('Contact Counter - Encounter'),
         centerTitle: true,
       ),
       body: EncountersForm(),
