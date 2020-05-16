@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "949294276536",
+    "firebase_url": "https://contactcounter-3431e.firebaseio.com",
+    "project_id": "contactcounter-3431e",
+    "storage_bucket": "contactcounter-3431e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949294276536:android:da39942407c96293dab94d",
+        "android_client_info": {
+          "package_name": "com.rdjauhari.counter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949294276536-muckelm1916orj6l3f33u0porhqsrrol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvATG-A1mf8yZJ7o9FPHJfKUgxhtrKbEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949294276536-muckelm1916orj6l3f33u0porhqsrrol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
