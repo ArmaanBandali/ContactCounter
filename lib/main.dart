@@ -20,10 +20,15 @@ class _HomePageState extends State<HomePage> {
         Center(
           child: FlatButton(
             color: Colors.red,
+<<<<<<< HEAD
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => Encounters()),);
             },
             child: Text('Encounters'),
+=======
+            onPressed: () {},
+            child: Text('Encounters2'),
+>>>>>>> df537ca27dc72430c6ce3916a0f6867136e901be
           ),
         ),
       ],
