@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+part 'encounters.dart';
 
 void main() => runApp(
       MaterialApp(
@@ -19,7 +20,9 @@ class _HomePageState extends State<HomePage> {
         Center(
           child: FlatButton(
             color: Colors.red,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Encounters()),);
+            },
             child: Text('Encounters'),
           ),
         ),
