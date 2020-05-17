@@ -8,50 +8,8 @@ class LocalSaving extends StatefulWidget {
 class _LocalSavingState extends State<LocalSaving> {
   String firstName;
   String lastName;
-  String tempName;
   final _firstKey = GlobalKey<FormState>();
   final _lastKey = GlobalKey<FormState>();
-
-  //Find the local path:
-  Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-    print(directory.path);
-    return directory.path;
-  }
-
-//Create a reference to the file location:
-  Future<File> get _localFile async {
-    final path = await _localPath;
-    return File('$path/profile.txt');
-  }
-
-//Write data to that file:
-  Future<File> writeContent() async {
-    final file = await _localFile;
-    return file.writeAsString('$tempName');
-  }
-
-//Read data from the file:
-  Future<String> readContent() async {
-    try {
-      final file = await _localFile;
-      String contents = await file.readAsString();
-      return contents;
-    } catch (e) {
-      return 'Error';
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    writeContent();
-    readContent().then((String value) {
-      setState(() {
-        tempName = value;
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +49,6 @@ class _LocalSavingState extends State<LocalSaving> {
                               return 'Please enter your first name';
                             }
                             firstName = value;
-                            tempName = firstName;
                             return null;
                           }),
                     ),
@@ -116,7 +73,6 @@ class _LocalSavingState extends State<LocalSaving> {
                               return 'Please enter your last name';
                             }
                             lastName = value;
-                            tempName = lastName;
                             return null;
                           }),
                     ),

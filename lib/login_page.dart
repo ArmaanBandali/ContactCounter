@@ -71,13 +71,12 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-
   }
 
   Future<String> signInWithGoogle() async {
     final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
     final GoogleSignInAuthentication googleSignInAuthentication =
-    await googleSignInAccount.authentication;
+        await googleSignInAccount.authentication;
 
     final AuthCredential credential = GoogleAuthProvider.getCredential(
       accessToken: googleSignInAuthentication.accessToken,
@@ -96,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
     return 'signInWithGoogle succeeded: $user';
   }
 
-  void signOutGoogle() async{
+  void signOutGoogle() async {
     await googleSignIn.signOut();
 
     print("User Sign Out");

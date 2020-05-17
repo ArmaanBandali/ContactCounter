@@ -62,6 +62,7 @@ class UserList{
 
   String retrieveEncounterInfo(){
 
+
   }
 
   DateTime retrieveDate(){
