@@ -13,24 +13,20 @@ class UserList{
 
 
   List<String> retrieveFirstContacts(){
-    List <String> fullname_List;
-
     Firestore.instance.collection('User').document(fullName).collection('closeCounters').getDocuments().then((value){
+      print(fullName);
+      int i=0;
+      List <String> fullname_List = List();
       value.documents.forEach((result){
-
-        fullname_List = result.data["name"];
+        fullname_List.add(result.data["name"]);
         print(result.data["name"]);
         print(fullname_List);
-
+        i=i+1;
       });
-
-
-
-
+      fullname_List.removeWhere((value) => value == null);
+      print(fullname_List);
+      return fullname_List;
     });
-
-
-
   }
 
   List<String> retrieveSecondaryContacts(List<String> primaryContacts){
