@@ -5,41 +5,42 @@ class UserList{
     this.firstName = firstName;
     this.lastName = lastName;
     this.fullName = firstName+'_'+lastName;
+    this.primaryContacts = List ();
+    this.secondaryContacts = List ();
   }
 
   String firstName;
   String lastName;
   String fullName;
+  List<String> primaryContacts;
+  List<String> secondaryContacts;
 
 
-  List<String> retrieveFirstContacts(){
+  void retrieveFirstContacts(){
     Firestore.instance.collection('User').document(fullName).collection('closeEncounters').getDocuments().then((value){
       print(fullName);
-      List <String> fullname_List = List();
       value.documents.forEach((result){
-        fullname_List.add(result.data["name"]);
+        primaryContacts.add(result.data["name"]);
         print(result.data["name"]);
-        print(fullname_List);
+        print(primaryContacts);
       });
-      fullname_List.removeWhere((value) => value == null);
-      print(fullname_List);
-      return fullname_List;
+      primaryContacts.removeWhere((value) => value == null);
+      print(primaryContacts);
     });
   }
 
-  List<String> retrieveSecondaryContacts(List<String> primaryContacts){
-    List <String> fullname_List = List();
+  List<String> retrieveSecondaryContacts(){
     print(primaryContacts);
     primaryContacts.forEach((element) {
       Firestore.instance.collection('User').document(element).collection('closeEncounters').getDocuments().then((value){
         value.documents.forEach((result){
-          fullname_List.add(result.data["name"]);
+          secondaryContacts.add(result.data["name"]);
           print(result.data["name"]);
         });
       });
-      fullname_List.removeWhere((value) => value == null);
-      print(fullname_List);
-      return fullname_List;
+      secondaryContacts.removeWhere((value) => value == null);
+      print(secondaryContacts);
+      return secondaryContacts;
     });
 
   }
