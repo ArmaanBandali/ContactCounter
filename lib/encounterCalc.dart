@@ -1,59 +1,56 @@
 part of 'main.dart';
 
-class UserList {
-  UserList(String firstName, String lastName) {
+class UserList{
+  UserList(String firstName, String lastName){
     this.firstName = firstName;
     this.lastName = lastName;
-    this.fullName = firstName + '_' + lastName;
-    this.primaryContacts = List();
-    this.secondaryContacts = List();
+    this.fullName = firstName+'_'+lastName;
   }
 
   String firstName;
   String lastName;
   String fullName;
-  List<String> primaryContacts;
-  List<String> secondaryContacts;
 
 
-  void retrieveFirstContacts() {
-    Firestore.instance.collection('User').document(fullName).collection(
-        'closeEncounters').getDocuments().then((value) {
+  List<String> retrieveFirstContacts(){
+    Firestore.instance.collection('User').document(fullName).collection('closeEncounters').getDocuments().then((value){
       print(fullName);
-      value.documents.forEach((result) {
-        primaryContacts.add(result.data["name"]);
+      List <String> fullname_List = List();
+      value.documents.forEach((result){
+        fullname_List.add(result.data["name"]);
         print(result.data["name"]);
-        print(primaryContacts);
+        print(fullname_List);
       });
-      primaryContacts.removeWhere((value) => value == null);
-      print(primaryContacts);
+      fullname_List.removeWhere((value) => value == null);
+      print(fullname_List);
+      return fullname_List;
     });
   }
 
-  List<String> retrieveSecondaryContacts() {
+  List<String> retrieveSecondaryContacts(List<String> primaryContacts){
+    List <String> fullname_List = List();
     print(primaryContacts);
     primaryContacts.forEach((element) {
-      Firestore.instance.collection('User').document(element).collection(
-          'closeEncounters').getDocuments().then((value) {
-        value.documents.forEach((result) {
-          secondaryContacts.add(result.data["name"]);
+      Firestore.instance.collection('User').document(element).collection('closeEncounters').getDocuments().then((value){
+        value.documents.forEach((result){
+          fullname_List.add(result.data["name"]);
           print(result.data["name"]);
         });
       });
-      secondaryContacts.removeWhere((value) => value == null);
-      print(secondaryContacts);
-      return secondaryContacts;
+      fullname_List.removeWhere((value) => value == null);
+      print(fullname_List);
+      return fullname_List;
     });
+
   }
 
-  List<String> eliminateDuplicates(List<String> contactList) {
+  List<String> eliminateDuplicates(List<String> contactList){
 
   }
 
   void writeNewContact() {
     String encounterName = retrieveEncounterInfo();
-    Firestore.instance.collection('User').document(fullName).collection(
-        'closeEncounters')
+    Firestore.instance.collection('User').document(fullName).collection('closeEncounters')
         .add({'name': encounterName});
   }
 
@@ -65,11 +62,11 @@ class UserList {
         .where("firstName", isEqualto: encounterName[0])
   }*/
 
-  int contactCalculation() {
+  int contactCalculation(){
 
   }
 
-  String retrieveEncounterInfo() {
+  String retrieveEncounterInfo(){
 //Return User entered in encounter info
     String fname = _EncountersFormState.first_name;
     String lname = _EncountersFormState.last_name;
@@ -77,9 +74,12 @@ class UserList {
     return fname + '_' + lname;
   }
 
-  DateTime retrieveDate() {
+  DateTime retrieveDate(){
+
     return DateTime.now();
+
   }
+
 
 
 }
