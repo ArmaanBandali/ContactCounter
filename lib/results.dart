@@ -1,6 +1,7 @@
 part of 'main.dart';
 
 class Results extends StatelessWidget {
+  UserList test= UserList("Test","User");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +11,12 @@ class Results extends StatelessWidget {
         title: Text('Contact Counter - Results'),
         centerTitle: true,
       ),
-      body: Container(),
+      body: Container(
+        child: Text(
+            test.retrieveFirstContacts().toString()
+
+        )
+      ),
     );
   }
 }
