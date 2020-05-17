@@ -135,8 +135,7 @@ class _EncountersFormState extends State<EncountersForm> {
                             }
                             date1 = value;
                             return null;
-                          }
-                          ),
+                          }),
                     ),
                   ],
                 ),
@@ -149,7 +148,11 @@ class _EncountersFormState extends State<EncountersForm> {
                 SizedBox(height: 20.0),
                 RaisedButton(
                     onPressed: () {
-                      if (_formKey.currentState.validate()) {}
+                      if (_formKey.currentState.validate())
+                      {
+                        UserList(first_name,last_name).writeNewContact();
+    }
+
                     },
                     child: Text('Submit'))
 
