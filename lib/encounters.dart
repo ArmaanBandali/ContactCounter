@@ -14,20 +14,20 @@ class Encounters extends StatelessWidget {
     );
   }
 }
+
 class Levels {
   int id;
   String name;
 
   Levels(this.id, this.name);
   static List<Levels> getLevels() {
-    return<Levels> [
-      Levels(1,'Less than 1 meter'),
-      Levels(2,'Less than 2 meters'),
-      Levels(3,'Less than 5 meters')
+    return <Levels>[
+      Levels(1, 'Less than 1 meter'),
+      Levels(2, 'Less than 2 meters'),
+      Levels(3, 'Less than 5 meters')
     ];
   }
 }
-
 
 class EncountersForm extends StatefulWidget {
   @override
@@ -35,7 +35,7 @@ class EncountersForm extends StatefulWidget {
 }
 
 class _EncountersFormState extends State<EncountersForm> {
-
+  var name;
   List<Levels> _levels = Levels.getLevels();
   List<DropdownMenuItem<Levels>> _dropdownMenuItems;
   Levels _selectedLevel;
@@ -66,28 +66,30 @@ class _EncountersFormState extends State<EncountersForm> {
     });
   }
 
+  var date1 = DateTime.now();
   var choice;
-  var choices = [1,2,3];
+  var choices = [1, 2, 3];
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-
     return Form(
-      key: _formKey,
-      child: Column(
-        children: <Widget>[
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: "Person you encountered",
-              icon: Icon(Icons.person)
-            ),
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter a person';
-              }
-              return null;
-            }
-          ),
+        key: _formKey,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(25.0, 50.0, 25.0, 0.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                    decoration: const InputDecoration(
+                        labelText: "Person you encountered",
+                        icon: Icon(Icons.person)),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter a person';
+                      }
+                      name = value;
+                      return null;
+                    }),
 //          TextFormField(
 //            validator: (value) {
 //              if (value.isEmpty){
@@ -96,19 +98,47 @@ class _EncountersFormState extends State<EncountersForm> {
 //              return null;
 //            }
 //          ),
-          DropdownButton(
-            value: _selectedLevel,
-            items: _dropdownMenuItems,
-            onChanged: onChangeDropdownItem,
-          ),
-
-          RaisedButton(
-            onPressed: (){
-              if (_formKey.currentState.validate()){
-              }
-            },
-            child: Text('Submit')
-          )
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.perm_contact_calendar),
+                    SizedBox(width: 15.0),
+                    Expanded(
+                      child: DateTimePickerFormField(
+                          inputType: InputType.date,
+                          format: DateFormat("yyyy-MM-dd"),
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(DateTime.now().year,
+                              DateTime.now().month, DateTime.now().day - 7),
+                          lastDate: DateTime.now(),
+                          editable: false,
+                          decoration: InputDecoration(
+                              labelText: 'Date', hasFloatingPlaceholder: false),
+                          onChanged: (dt) {
+                            setState(() => date1 = dt);
+                            print('Selected date: $date1');
+                          },
+                          validator: (value) {
+                            if (value == null) {
+                              return 'Please enter a date';
+                            }
+                            name = value;
+                            return null;
+                          }),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 25.0),
+                DropdownButton(
+                  value: _selectedLevel,
+                  items: _dropdownMenuItems,
+                  onChanged: onChangeDropdownItem,
+                ),
+                SizedBox(height: 20.0),
+                RaisedButton(
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {}
+                    },
+                    child: Text('Submit'))
 
 //          InputDatePickerFormField(
 //            key:_formKey,
@@ -116,16 +146,12 @@ class _EncountersFormState extends State<EncountersForm> {
 //            lastDate: DateTime(2021),
 //
 //          )
-        ],
-      )
-    );
+              ],
+            ),
+          ),
+        ));
   }
 }
-
-
-
-
-
 
 //class Form extends StatefulWidget {
 //  @override
