@@ -151,9 +151,10 @@ class _EncountersFormState extends State<EncountersForm> {
                       if (_formKey.currentState.validate())
                       {
 
+                        Navigator.pop(context);
                         ContactCounter.USER.writeNewContact();
 
-    }
+                      }
 
                     },
                     child: Text('Submit'))
