@@ -70,6 +70,9 @@ class _HomePageState extends State<HomePage> {
                 child: FlatButton(
                   color: Colors.blue.shade700,
                   onPressed: () {
+                    UserList("Test","User").retrieveFirstContacts();
+                    UserList("Test","User").writeNewContact();
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Results()),

@@ -11,8 +11,25 @@ class UserList{
   String lastName;
   String fullName;
 
+
   List<String> retrieveFirstContacts(){
-    var firstContacts = ['hello','world'];
+    List <String> fullname_List;
+
+    Firestore.instance.collection('User').document(fullName).collection('closeCounters').getDocuments().then((value){
+      value.documents.forEach((result){
+
+        fullname_List = result.data["name"];
+        print(result.data["name"]);
+        print(fullname_List);
+
+      });
+
+
+
+
+    });
+
+
 
   }
 
@@ -28,7 +45,7 @@ class UserList{
     String encounterName = retrieveEncounterInfo();
     DateTime encounterDate = retrieveDate();
     Firestore.instance.collection('user').document(fullName)
-        .setData({'fullName': encounterName, 'date': encounterDate});
+        .setData({'name': "WORK PLEASE", 'date': "DC"});
   }
 
   /*void updateContacts(){
