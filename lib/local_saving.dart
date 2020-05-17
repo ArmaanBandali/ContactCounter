@@ -6,8 +6,8 @@ class LocalSaving extends StatefulWidget {
 }
 
 class _LocalSavingState extends State<LocalSaving> {
-  String firstName;
-  String lastName;
+  static String ufname;
+  static String ulname;
   final _firstKey = GlobalKey<FormState>();
   final _lastKey = GlobalKey<FormState>();
 
@@ -48,7 +48,7 @@ class _LocalSavingState extends State<LocalSaving> {
                             if (value.isEmpty) {
                               return 'Please enter your first name';
                             }
-                            firstName = value;
+                            ufname = value;
                             return null;
                           }),
                     ),
@@ -72,7 +72,7 @@ class _LocalSavingState extends State<LocalSaving> {
                             if (value.isEmpty) {
                               return 'Please enter your last name';
                             }
-                            lastName = value;
+                            ulname = value;
                             return null;
                           }),
                     ),
@@ -83,6 +83,7 @@ class _LocalSavingState extends State<LocalSaving> {
               RaisedButton(
                   onPressed: () {
                     if (_firstKey.currentState.validate() && _lastKey.currentState.validate()) {
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => ContactCounter()),

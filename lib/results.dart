@@ -1,7 +1,7 @@
 part of 'main.dart';
 
 class Results extends StatelessWidget {
-  UserList test= UserList("Test","User");
+  String stringz = ContactCounter.USER.retrieveSecondaryContacts(ContactCounter.USER.retrieveFirstContacts()).toString();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +13,7 @@ class Results extends StatelessWidget {
       ),
       body: Container(
         child: Text(
-            test.retrieveFirstContacts().toString()
+            '$stringz'
 
         )
       ),

@@ -94,6 +94,7 @@ class _HomePageState extends State<HomePage> {
 }
 
 class ContactCounter extends StatelessWidget {
+  static UserList USER=new UserList(_LocalSavingState.ufname.trim(),_LocalSavingState.ulname.trim());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
