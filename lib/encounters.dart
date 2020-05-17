@@ -88,7 +88,7 @@ class _EncountersFormState extends State<EncountersForm> {
                       if (value.isEmpty) {
                         return 'Please enter a first name';
                       }
-                      first_name = value;
+                      first_name = value.trim();
                       return null;
                     }),
                 TextFormField(
@@ -99,7 +99,7 @@ class _EncountersFormState extends State<EncountersForm> {
                       if (value.isEmpty) {
                         return 'Please enter a last name';
                       }
-                      last_name = value;
+                      last_name = value.trim();
                       return null;
                     }),
 //          TextFormField(
@@ -150,7 +150,9 @@ class _EncountersFormState extends State<EncountersForm> {
                     onPressed: () {
                       if (_formKey.currentState.validate())
                       {
-                        UserList(first_name,last_name).writeNewContact();
+
+                        ContactCounter.USER.writeNewContact();
+
     }
 
                     },

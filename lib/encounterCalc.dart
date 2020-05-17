@@ -71,7 +71,7 @@ class UserList{
     String fname = _EncountersFormState.first_name;
     String lname = _EncountersFormState.last_name;
 
-    return fname + '_' + lname;
+    return (fname + '_' + lname).trim();
   }
 
   DateTime retrieveDate(){
