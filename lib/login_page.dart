@@ -41,10 +41,18 @@ class _LoginPageState extends State<LoginPage> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
-                return LocalSaving();
+                if (true) {
+                  return LocalSaving();
+                }
+                else{
+                  return ContactCounter();
+                }
+
               },
             ),
-          );
+          )
+
+          ;
         });
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),

@@ -35,8 +35,8 @@ class EncountersForm extends StatefulWidget {
 }
 
 class _EncountersFormState extends State<EncountersForm> {
-  var first_name;
-  var last_name;
+  static var first_name;
+  static var last_name;
   List<Levels> _levels = Levels.getLevels();
   List<DropdownMenuItem<Levels>> _dropdownMenuItems;
   Levels _selectedLevel;
@@ -135,8 +135,7 @@ class _EncountersFormState extends State<EncountersForm> {
                             }
                             date1 = value;
                             return null;
-                          }
-                          ),
+                          }),
                     ),
                   ],
                 ),
@@ -149,7 +148,11 @@ class _EncountersFormState extends State<EncountersForm> {
                 SizedBox(height: 20.0),
                 RaisedButton(
                     onPressed: () {
-                      if (_formKey.currentState.validate()) {}
+                      if (_formKey.currentState.validate())
+                      {
+                        UserList(first_name,last_name).writeNewContact();
+    }
+
                     },
                     child: Text('Submit'))
 
