@@ -35,7 +35,8 @@ class EncountersForm extends StatefulWidget {
 }
 
 class _EncountersFormState extends State<EncountersForm> {
-  var name;
+  var first_name;
+  var last_name;
   List<Levels> _levels = Levels.getLevels();
   List<DropdownMenuItem<Levels>> _dropdownMenuItems;
   Levels _selectedLevel;
@@ -81,13 +82,24 @@ class _EncountersFormState extends State<EncountersForm> {
               children: <Widget>[
                 TextFormField(
                     decoration: const InputDecoration(
-                        labelText: "Person you encountered",
+                        labelText: "First name of person you encountered",
                         icon: Icon(Icons.person)),
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'Please enter a person';
+                        return 'Please enter a first name';
                       }
-                      name = value;
+                      first_name = value;
+                      return null;
+                    }),
+                TextFormField(
+                    decoration: const InputDecoration(
+                        labelText: "Last name of person you encountered",
+                        icon: Icon(Icons.person)),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter a last name';
+                      }
+                      last_name = value;
                       return null;
                     }),
 //          TextFormField(
@@ -121,9 +133,10 @@ class _EncountersFormState extends State<EncountersForm> {
                             if (value == null) {
                               return 'Please enter a date';
                             }
-                            name = value;
+                            date1 = value;
                             return null;
-                          }),
+                          }
+                          ),
                     ),
                   ],
                 ),
