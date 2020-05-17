@@ -57,10 +57,16 @@ class UserList{
   }
 
   String retrieveEncounterInfo(){
+//Return User entered in encounter info
+   String fname = _EncountersFormState.first_name;
+   String lname = _EncountersFormState.last_name;
 
+   return fname + '_' + lname;
   }
 
   DateTime retrieveDate(){
+
+    return DateTime.now();
 
   }
 
