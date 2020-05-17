@@ -35,8 +35,8 @@ class EncountersForm extends StatefulWidget {
 }
 
 class _EncountersFormState extends State<EncountersForm> {
-  var first_name;
-  var last_name;
+  static var first_name;
+  static var last_name;
   List<Levels> _levels = Levels.getLevels();
   List<DropdownMenuItem<Levels>> _dropdownMenuItems;
   Levels _selectedLevel;
