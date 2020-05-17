@@ -8,6 +8,8 @@ import 'dart:async';
 import 'dart:io';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:intl/intl.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+part 'encounterCalc.dart';
 part 'encounters.dart';
 part 'results.dart';
 part 'login_page.dart';
