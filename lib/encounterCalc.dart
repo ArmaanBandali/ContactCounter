@@ -60,8 +60,11 @@ class UserList{
 //Return User entered in encounter info
    String fname = _EncountersFormState.first_name;
    String lname = _EncountersFormState.last_name;
+   String fullnamez = fname+lname;
 
-   return fname + '_' + lname;
+   return fullnamez.trim();
+
+
   }
 
   DateTime retrieveDate(){
