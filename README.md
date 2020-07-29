@@ -1,6 +1,7 @@
 # counter
 
-virus spread counter
+Virus spread counter that aims to track the info of when people come into contact with each.
+This tracking will help to track the spread of a virus like COVID-19 and unveil a more accurate possible extent of the virus spread.
 
 ## Getting Started
 
